@@ -1,0 +1,53 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f7ff; /* Light blue background dari gambar */
+    padding-top: 80px;
+}
+
+html {
+    overflow-y: scroll; /* Memaksa scrollbar selalu ada meskipun konten sedikit, agar navbar tidak geser-geser */
+}
+
+.navbar {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.hero-section {
+    padding: 100px 0;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-icon {
+    width: 50px;
+    margin-bottom: 15px;
+}
+
+footer {
+    background-color: white;
+    padding: 40px 0;
+    margin-top: 50px;
+}
+
+/* Gallery Hover Effect */
+.gallery-img {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 10px;
+}
+.gallery-img img {
+    transition: 0.3s;
+}
+.gallery-img:hover img {
+    transform: scale(1.1);
+}

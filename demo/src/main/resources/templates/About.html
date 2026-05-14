@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Portofolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f7ff;
+            padding-top: 100px;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .profile-card, .experience-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            background: #ffffff;
+        }
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            background-color: #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            overflow: hidden; /* Tambahkan agar gambar tetap bulat sempurna */
+        }
+        .experience-item {
+            border-left: 3px solid #0d6efd;
+            padding-left: 20px;
+            position: relative;
+        }
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: #0d6efd;
+            border-radius: 50%;
+        }
+        footer {
+            background-color: #f8fbff;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top p-3" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" th:href="@{/}">
+                <span class="text-dark">&lt;/&gt;</span> My Portfolio
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills}">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/projects}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">About Me</h1>
+            <p class="text-muted">Mari berkenalan lebih dekat</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                
+                <div class="card profile-card p-4 p-md-5 mb-4">
+                    <div class="row align-items-center text-center text-md-start">
+                        <div class="col-md-4 mb-4 mb-md-0">
+                            <div class="profile-img-container">
+                                <img th:src="@{/images/sho.jpg}" class="img-fluid" alt="Steven">
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <h2 class="fw-bold mb-1">Steven Wijaya</h2>
+                            <p class="text-primary fw-semibold mb-3">AI & Automation Specialist</p>
+                            <p class="text-secondary leading-relaxed">
+                                Saya adalah mahasiswa Teknik Informatika yang berfokus pada pengembangan Artificial Intelligence dan Sistem Automasi. 
+                                Saya memiliki ketertarikan mendalam dalam membangun model Machine Learning serta mengotomatisasi proses bisnis untuk meningkatkan efisiensi melalui teknologi.
+                            </p>
+                            <button class="btn btn-primary rounded-pill px-4" onclick="showHelloAlert()">
+                                Say Hello!
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card experience-card p-4 p-md-5">
+                    <h3 class="fw-bold mb-4">Experience</h3>
+                    
+                    <div class="experience-list">
+                        <div class="experience-item mb-5">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Project Leader: AI Chatbot for Campus Info</h5>
+                                    <span class="text-muted small">Tugas Besar Pemrograman Web & AI</span>
+                                </div>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3">2024</span>
+                            </div>
+                            <p class="text-secondary mb-0">Memimpin tim beranggotakan 4 orang untuk membangun aplikasi web chatbot berbasis AI yang dapat menjawab pertanyaan seputar jadwal perkuliahan secara otomatis.</p>
+                        </div>
+
+                        <div class="experience-item mb-5">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Asisten Laboratorium Komputer</h5>
+                                    <span class="text-muted small">Himpunan Mahasiswa Informatika</span>
+                                </div>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3">2023 - Sekarang</span>
+                            </div>
+                            <p class="text-secondary mb-0">Membantu dosen dalam praktikum mata kuliah Algoritma dan Struktur Data, serta mengelola automasi sistem presensi praktikan menggunakan skrip Python.</p>
+                        </div>
+
+                        <div class="experience-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Peserta Bootcamp Machine Learning</h5>
+                                    <span class="text-muted small">Sertifikasi Google Coursera / Bangkit Academy</span>
+                                </div>
+                                <span class="badge bg-light text-primary border border-primary-subtle rounded-pill px-3">2023</span>
+                            </div>
+                            <p class="text-secondary mb-0">Menyelesaikan pelatihan intensif mengenai pengolahan data menggunakan Python, Library Scikit-Learn, dan dasar-dasar Neural Networks untuk klasifikasi gambar.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top mt-5 py-5">
+        <div class="container text-center text-md-start">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-address-book me-2"></i>My Contact</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> <a href="mailto:steven2008wijaya@gmail.com" class="text-decoration-none text-muted">steven2008wijaya@gmail.com</a></li>
+                        <li class="mb-2"><i class="fab fa-whatsapp me-2 text-success"></i> <a href="https://wa.me/6281241515700" target="_blank" class="text-decoration-none text-muted">+62 812-4151-5700</a></li>
+                        <li class="mb-2"><i class="fas fa-paper-plane me-2 text-info"></i> <a th:href="@{/contact}" class="text-decoration-none text-muted">Kirim Pesan Lewat Form</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a th:href="@{/home}" class="text-decoration-none text-muted small">Home</a>
+                        <a th:href="@{/skills}" class="text-decoration-none text-muted small">Skills</a>
+                        <a th:href="@{/project}" class="text-decoration-none text-muted small">Projects</a>
+                        <a th:href="@{/gallery}" class="text-decoration-none text-muted small">Gallery</a>
+                        <a th:href="@{/contact}" class="text-decoration-none text-muted small">Contact</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h6 class="fw-bold mb-3">Connect With Me</h6>
+                    <div class="d-flex justify-content-md-end gap-3 text-primary">
+                        <a href="https://github.com/StevenWijaya-2008" target="_blank" class="text-primary"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/steven-wijaya-649a02406" target="_blank" class="text-primary"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://instagram.com/vennn08" target="_blank" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 text-muted opacity-25">
+            <div class="text-center">
+                <p class="small text-muted mb-0">© 2026 Steven Wijaya. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showHelloAlert() {
+            alert("Halo! Senang Anda berkunjung ke profil saya. Mari berkolaborasi!");
+        }
+    </script>
+</body>
+</html>

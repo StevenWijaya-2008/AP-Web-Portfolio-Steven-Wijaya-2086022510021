@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Portofolio Steven Wijaya</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f7ff;
+            padding-top: 100px;
+        }
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .contact-card {
+            border: none;
+            border-radius: 15px;
+            background: white;
+            overflow: hidden;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #eef6ff;
+            color: #0d6efd;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        footer {
+            background-color: #f8fbff;
+            padding: 40px 0;
+            margin-top: 80px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top p-3" id="main-nav">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" th:href="@{/}">
+                <span class="text-dark">&lt;/&gt;</span> My Portfolio
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/skills}">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/projects}">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/gallery}">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link active fw-bold" th:href="@{/contact}">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">Contact Me</h1>
+            <p class="text-muted">Punya pertanyaan tentang AI atau proyek automasi? Hubungi saya!</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="card contact-card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-5 bg-primary p-4 p-md-5 text-white">
+                            <h3 class="fw-bold mb-4">Informasi Kontak</h3>
+                            <p class="mb-5 opacity-75">Saya terbuka untuk kolaborasi proyek AI, automasi sistem, atau sekadar diskusi teknologi.</p>
+                            
+                            <div class="d-flex mb-4">
+                                <i class="fas fa-envelope mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">Email</h6>
+                                    <p class="small mb-0">steven2008wijaya@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex mb-4">
+                                <i class="fab fa-whatsapp mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">WhatsApp</h6>
+                                    <p class="small mb-0">+62 812-4151-5700</p>
+                                </div>
+                            </div>
+                            <div class="d-flex">
+                                <i class="fas fa-location-dot mt-1 me-3"></i>
+                                <div>
+                                    <h6 class="mb-0">Lokasi</h6>
+                                    <p class="small mb-0">Makassar, Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-7 p-4 p-md-5">
+                            <form id="contactForm" th:action="@{/contact/send}" method="post" onsubmit="validateForm(event)">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label small fw-bold">Nama Lengkap</label>
+                                    <input type="text" name="name" class="form-control shadow-none" id="name" placeholder="Masukkan nama Anda">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label small fw-bold">Alamat Email</label>
+                                    <input type="email" name="email" class="form-control shadow-none" id="email" placeholder="example@email.com">
+                                </div>
+                                <div class="mb-4">
+                                    <label for="message" class="form-label small fw-bold">Pesan</label>
+                                    <textarea name="message" class="form-control shadow-none" id="message" rows="4" placeholder="Tulis pesan Anda di sini..."></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill fw-bold">
+                                    Kirim Pesan <i class="fas fa-paper-plane ms-2"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-top mt-5 py-5">
+        <div class="container text-center text-md-start">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3 text-primary"><i class="fas fa-address-book me-2"></i>My Contact</h5>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><i class="fas fa-envelope me-2 text-primary"></i> <a href="mailto:steven2008wijaya@gmail.com" class="text-decoration-none text-muted">steven2008wijaya@gmail.com</a></li>
+                        <li class="mb-2"><i class="fab fa-whatsapp me-2 text-success"></i> <a href="https://wa.me/6281241515700" target="_blank" class="text-decoration-none text-muted">+62 812-4151-5700</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-md-center">
+                    <h6 class="fw-bold mb-3">Quick Links</h6>
+                    <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+                        <a th:href="@{/home}" class="text-decoration-none text-muted small">Home</a>
+                        <a th:href="@{/about}" class="text-decoration-none text-muted small">About</a>
+                        <a th:href="@{/skills}" class="text-decoration-none text-muted small">Skills</a>
+                        <a th:href="@{/project}" class="text-decoration-none text-muted small">Projects</a>
+                        <a th:href="@{/gallery}" class="text-decoration-none text-muted small">Gallery</a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h6 class="fw-bold mb-3">Connect With Me</h6>
+                    <div class="d-flex justify-content-md-end gap-3 text-primary">
+                        <a href="https://github.com/StevenWijaya-2008" target="_blank" class="text-primary"><i class="fab fa-github fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/steven-wijaya-649a02406" target="_blank" class="text-primary"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://instagram.com/vennn08" target="_blank" class="text-primary"><i class="fab fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 text-muted opacity-25">
+            <div class="text-center">
+                <p class="small text-muted mb-0">© 2026 Steven Wijaya. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script th:src="@{/js/script.js}"></script>
+    <script th:inline="javascript">
+        function validateForm(event) {
+            // Untuk sementara kita biarkan preventDefault agar alert muncul 
+            // Namun jika sudah ada backend, hapus event.preventDefault() agar data terkirim
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name === "" || email === "" || message === "") {
+                alert("Semua kolom harus diisi ya.");
+                event.preventDefault();
+                return false;
+            }
+
+            if (!email.includes("@")) {
+                alert("Mohon masukkan alamat email yang valid.");
+                event.preventDefault();
+                return false;
+            }
+
+            alert("Terima kasih, " + name + "! Pesan Anda sedang diproses.");
+            return true;
+        }
+    </script>
+</body>
+</html>
