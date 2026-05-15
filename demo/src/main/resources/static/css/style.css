@@ -1,11 +1,11 @@
 body {
     font-family: 'Inter', sans-serif;
-    background-color: #f0f7ff; /* Light blue background dari gambar */
+    background-color: #f0f7ff;
     padding-top: 80px;
 }
 
 html {
-    overflow-y: scroll; /* Memaksa scrollbar selalu ada meskipun konten sedikit, agar navbar tidak geser-geser */
+    overflow-y: scroll;
 }
 
 .navbar {
